@@ -14,35 +14,39 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Team[0].Name)
+                Team Name
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Team[0].LeagueID)
+                League Name
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Team[0].StadiumID)
+                Stadium Name
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Team) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LeagueID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StadiumID)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.TeamID">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.TeamID">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.TeamID">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model.Teams)
+        {
+            var league = Model.Leagues.Where(x => x.LeagueID == item.LeagueID).FirstOrDefault().Name;
+            var stadium = Model.Stadiums.Where(x => x.StadiumID == item.StadiumID).FirstOrDefault().Name;
+
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @league
+                </td>
+                <td>
+                    @stadium
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.TeamID">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.TeamID">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.TeamID">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

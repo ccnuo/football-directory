@@ -19,13 +19,19 @@ namespace FootballDirectory.Pages.Players
             _context = context;
         }
 
-        public IList<Player> Player { get;set; } = default!;
+        public IList<Player> Players { get;set; } = default!;
+        public IList<Team> Teams { get; set; } = default!;
 
         public async Task OnGetAsync()
         {
             if (_context.Players != null)
             {
-                Player = await _context.Players.ToListAsync();
+                Players = await _context.Players.ToListAsync();
+            }
+
+            if (_context.Teams != null)
+            {
+                Teams = await _context.Teams.ToListAsync();
             }
         }
     }
