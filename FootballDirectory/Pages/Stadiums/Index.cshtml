@@ -1,0 +1,48 @@
+﻿@page
+@model FootballDirectory.Pages.Stadiums.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Stadium[0].TeamID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Stadium[0].Capacity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Stadium[0].Name)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Stadium) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TeamID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Capacity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.StadiumID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.StadiumID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.StadiumID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
