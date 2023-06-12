@@ -28,7 +28,10 @@ namespace FootballDirectory.Pages.Leagues
                 return NotFound();
             }
 
-            var league = await _context.Leagues.FirstOrDefaultAsync(m => m.LeagueID == id);
+            var league = await _context.Leagues
+                .Include(t => t.Teams)
+                .FirstOrDefaultAsync(m => m.LeagueID == id);
+
             if (league == null)
             {
                 return NotFound();

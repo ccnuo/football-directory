@@ -23,6 +23,21 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.League.Name)
         </dd>
+        <dd class="col-sm-10">
+            <table class="table">
+                <tr>
+                    <th>Teams</th>
+                </tr>
+                @foreach (var item in Model.League.Teams)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                    </tr>
+                }
+            </table>
+        </dd>
     </dl>
 </div>
 <div>
