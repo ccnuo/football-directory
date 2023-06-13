@@ -1,4 +1,6 @@
-﻿namespace FootballDirectory.Models
+﻿using FootballDirectory.Enums;
+
+namespace FootballDirectory.Models
 {
     public class Player
     {
@@ -6,5 +8,6 @@
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public int TeamID { get; set; }
+        public PlayerPosition Position { get; set; }
     }
 }

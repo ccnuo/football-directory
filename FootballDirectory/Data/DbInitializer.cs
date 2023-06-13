@@ -1,6 +1,7 @@
 ﻿using FootballDirectory.Data;
 using FootballDirectory.Models;
 using System.Diagnostics;
+using FootballDirectory.Enums;
 
 namespace FootballDirectory.Data
 {
@@ -25,20 +26,6 @@ namespace FootballDirectory.Data
             context.Leagues.AddRange(leagues);
             context.SaveChanges();
 
-            var players = new Player[]
-            {
-                new Player{FirstName="Lionel",LastName="Messi",TeamID=1},
-                new Player{FirstName="Harry",LastName="Kane",TeamID=2},
-                new Player{FirstName="Vinicius",LastName="Jr",TeamID=3},
-                new Player{FirstName="Rafael",LastName="Leao",TeamID=4},
-                new Player{FirstName="Joshua",LastName="Kimmich",TeamID=5},
-                new Player{FirstName="Enzo",LastName="Fernandez",TeamID=6},
-                new Player{FirstName="Lautaro",LastName="Martinez",TeamID=7}
-            };
-
-            context.Players.AddRange(players);
-            context.SaveChanges();
-
             var teams = new Team[]
             {
                 new Team{Name="Paris Saint Germain",LeagueID=1,StadiumID=1},
@@ -51,7 +38,21 @@ namespace FootballDirectory.Data
             };
 
             context.Teams.AddRange(teams);
-            context.SaveChanges();            
+            context.SaveChanges();
+
+            var players = new Player[]
+            {
+                new Player{FirstName="Lionel",LastName="Messi",TeamID=1,Position=PlayerPosition.Midfielder},
+                new Player{FirstName="Harry",LastName="Kane",TeamID=2,Position=PlayerPosition.Forward},
+                new Player{FirstName="Vinicius",LastName="Jr",TeamID=3,Position=PlayerPosition.Forward},
+                new Player{FirstName="Rafael",LastName="Leao",TeamID=4,Position=PlayerPosition.Forward},
+                new Player{FirstName="Joshua",LastName="Kimmich",TeamID=5,Position=PlayerPosition.Defender},
+                new Player{FirstName="Enzo",LastName="Fernandez",TeamID=6,Position=PlayerPosition.Midfielder},
+                new Player{FirstName="Lautaro",LastName="Martinez",TeamID=7,Position=PlayerPosition.Forward}
+            };
+
+            context.Players.AddRange(players);
+            context.SaveChanges();                      
 
             var stadiums = new Stadium[]
             {
