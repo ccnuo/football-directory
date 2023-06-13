@@ -6,5 +6,6 @@
         public string Name { get; set; }
         public int LeagueID { get; set; }
         public int StadiumID { get; set; }
+        public ICollection<Player> Players { get; set;}
     }
 }
