@@ -28,7 +28,10 @@ namespace FootballDirectory.Pages.Players
                 return NotFound();
             }
 
-            var player = await _context.Players.FirstOrDefaultAsync(m => m.PlayerID == id);
+            var player = await _context.Players
+                .Include(t => t.Team)
+                .FirstOrDefaultAsync(m => m.PlayerID == id);
+
             if (player == null)
             {
                 return NotFound();

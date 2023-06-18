@@ -8,6 +8,7 @@ namespace FootballDirectory.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public int TeamID { get; set; }
+        public Team Team { get; set; }
         public PlayerPosition Position { get; set; }
     }
 }
