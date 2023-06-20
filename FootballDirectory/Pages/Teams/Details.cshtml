@@ -18,16 +18,10 @@
             @Html.DisplayFor(model => model.Team.Name)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Team.LeagueID)
+            League
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Team.LeagueID)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Team.StadiumID)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Team.StadiumID)
+            @Model.Team.League.Name
         </dd>
         <dd class="col-sm-10">
             <table class="table">

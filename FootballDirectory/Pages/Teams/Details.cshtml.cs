@@ -30,6 +30,7 @@ namespace FootballDirectory.Pages.Teams
 
             var team = await _context.Teams
                 .Include(p => p.Players)
+                .Include(l => l.League)
                 .FirstOrDefaultAsync(m => m.TeamID == id);
 
             if (team == null)
